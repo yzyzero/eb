@@ -1,0 +1,131 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN" manifest="">
+<head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta http-equiv="cache-control" content="no-cache">
+	<meta http-equiv="pragma" content="no-cache">
+	<meta http-equiv="expires" content="0">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=10, user-scalable=yes">
+
+    <title>应急广播</title>
+
+    <link rel="stylesheet" type="text/css" href="resources/css/default.css" />
+    <link rel="stylesheet" type="text/css" href="resources/css/ol.css" />
+    <link rel="stylesheet" type="text/css" href="resources/css/leaflet.css" />
+    
+<style type="text/css">
+.x-d3-selected {
+    fill: #F9F900;
+    stroke: red;
+    stroke-width: 2;
+}
+
+
+body{
+	background: #4F94CD url(resources/images/bg.png) no-repeat fixed top;
+}
+
+.sk-three-bounce {
+	width: 100px;
+	height: 100px;
+	left:50%;
+	top:50%; 
+	position:absolute;
+	margin:-50px 0 0 -50px;
+}
+.sk-three-bounce .sk-child {
+    width: 20px;
+    height: 20px;
+    background-color: #66CD00;
+    border-radius: 100%;
+    display: inline-block;
+    -webkit-animation: sk-three-bounce 1.4s ease-in-out 0s infinite both;
+    animation: sk-three-bounce 1.4s ease-in-out 0s infinite both;
+}
+.sk-three-bounce .sk-bounce1 {
+    -webkit-animation-delay: -0.32s;
+    animation-delay: -0.32s; 
+}
+.sk-three-bounce .sk-bounce2 {
+    -webkit-animation-delay: -0.16s;
+    animation-delay: -0.16s; 
+}
+
+@-webkit-keyframes sk-three-bounce {
+  0%, 80%, 100% {
+    -webkit-transform: scale(0);
+            transform: scale(0); }
+  40% {
+    -webkit-transform: scale(1);
+            transform: scale(1); } }
+
+@keyframes sk-three-bounce {
+  0%, 80%, 100% {
+    -webkit-transform: scale(0);
+            transform: scale(0);
+  }
+  40% {
+    -webkit-transform: scale(1);
+            transform: scale(1); 
+  }
+}
+</style>
+	<!-- 
+	<script type="text/javascript" src="resources/js/openlayers/ol.js"></script>
+	<script type="text/javascript" src="resources/js/leaflet.js"></script>
+	<script type="text/javascript" src="resources/js/echarts.js"></script>
+	<script type="text/javascript" src="resources/js/echarts-leaflet.js"></script>
+	<script type="text/javascript" src="resources/js/kurento-utils.js"></script>
+    <script type="text/javascript" src="resources/js/global-constant.js"></script>
+	 -->
+	
+    <script type="text/javascript">
+        var Ext = Ext || {}; // Ext namespace won't be defined yet...
+
+        // This function is called by the Microloader after it has performed basic
+        // device detection. The results are provided in the "tags" object. You can
+        // use these tags here or even add custom tags. These can be used by platform
+        // filters in your manifest or by platformConfig expressions in your app.
+        //
+        Ext.beforeLoad = function (tags) {
+            var s = location.search,  // the query string (ex "?foo=1&bar")
+                profile;
+
+            // For testing look for "?classic" or "?modern" in the URL to override
+            // device detection default.
+            //
+            if (s.match(/\bclassic\b/)) {
+                profile = 'classic';
+            }
+            else if (s.match(/\bmodern\b/)) {
+                profile = 'modern';
+            }
+            else {
+                profile = tags.desktop ? 'classic' : 'modern';
+                //profile = tags.phone ? 'modern' : 'classic';
+            }
+
+            Ext.manifest = profile; // this name must match a build profile name
+
+            // This function is called once the manifest is available but before
+            // any data is pulled from it.
+            //
+            //return function (manifest) {
+                // peek at / modify the manifest object
+            //};
+        };
+    </script>
+
+    <!-- The line below must be kept intact for Sencha Cmd to build your application -->
+    <script id="microloader" data-app="f4f66fc2-178d-4e1b-8390-78a877ded018" type="text/javascript" src="bootstrap.js"></script>
+	<!--<video id="_kurento_audio" autoplay/>-->
+</head>
+<body>
+    <div class="sk-three-bounce">
+      <div class="sk-child sk-bounce1"></div>
+      <div class="sk-child sk-bounce2"></div>
+      <div class="sk-child sk-bounce3"></div>
+    </div>
+</body>
+</html>
