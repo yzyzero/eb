@@ -12,7 +12,8 @@ Ext.define('eb.view.main.Main', {
     requires: [
         'Ext.plugin.Viewport',
         'eb.view.main.MainController',
-        'eb.view.main.MainModel'
+        'eb.view.main.MainModel',
+        'eb.view.main.Panel'
     ],
 
     controller: 'main',
